@@ -2,13 +2,17 @@
 
 :root {
   color-scheme: light;
-  --color-ink: #211b18;
-  --color-muted: #756c66;
-  --color-cream: #fbf7f1;
-  --color-ivory: #fffdf9;
-  --color-gold: #b88a44;
-  --color-rose: #d8a79a;
-  --color-line: #eadfd4;
+  --color-ink: #0b0a08;
+  --color-muted: #6f6657;
+  --color-cream: #fff8df;
+  --color-ivory: #fffdf6;
+  --color-gold: #d7a642;
+  --color-rose: #f5e5b6;
+  --color-line: #eadfbd;
+  --color-primary: #0b0a08;
+  --color-primary-dark: #020202;
+  --color-accent: #f4d26f;
+  --shadow-soft: 0 24px 70px rgba(6, 5, 4, 0.12);
 }
 
 * {
@@ -43,7 +47,7 @@ select {
 }
 
 .container {
-  width: min(1120px, calc(100% - 32px));
+  width: calc(100% - 64px);
   margin-inline: auto;
 }
 
@@ -104,7 +108,8 @@ select:focus-visible {
 }
 
 .btn-primary {
-  background: #211b18;
+  background: var(--color-primary);
+  box-shadow: 0 14px 28px rgba(6, 5, 4, 0.18);
   color: white;
 }
 
@@ -116,7 +121,7 @@ select:focus-visible {
 
 .btn-gold {
   background: var(--color-gold);
-  color: white;
+  color: #090806;
 }
 
 .btn:disabled {
@@ -129,6 +134,7 @@ select:focus-visible {
   background: white;
   border: 1px solid var(--color-line);
   border-radius: 8px;
+  box-shadow: var(--shadow-soft);
 }
 
 .field {
@@ -171,5 +177,27 @@ select:focus-visible {
 @media (max-width: 760px) {
   .section {
     padding: 52px 0;
+  }
+
+  :root {
+    --color-ink: #0b0a08;
+    --color-muted: #6f6657;
+    --color-cream: #fff8df;
+    --color-ivory: #fffdf6;
+    --color-gold: #d7a642;
+    --color-rose: #f5e5b6;
+    --color-line: #eadfbd;
+    --color-primary: #0b0a08;
+    --color-primary-dark: #020202;
+    --color-accent: #f4d26f;
+    --shadow-soft: 0 22px 58px rgba(6, 5, 4, 0.14);
+  }
+
+  body {
+    background: var(--color-ivory);
+  }
+
+  .container {
+    width: min(100% - 28px, 1120px);
   }
 }

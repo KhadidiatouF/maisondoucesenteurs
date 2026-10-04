@@ -1,18 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { LucideMinus, LucidePlus } from '@lucide/angular';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-quantity-selector',
   standalone: true,
-  imports: [LucideMinus, LucidePlus],
+  imports: [FaIconComponent],
   template: `
-    <div class="quantity" aria-label="Selection de quantite">
+    <div class="quantity" aria-label="Sélection de quantité">
       <button type="button" class="icon-btn" (click)="change(quantity - 1)" [disabled]="quantity <= min" aria-label="Diminuer la quantite">
-        <svg lucideMinus size="16" aria-hidden="true"></svg>
+        <fa-icon [icon]="faMinus" aria-hidden="true" />
       </button>
       <span>{{ quantity }}</span>
       <button type="button" class="icon-btn" (click)="change(quantity + 1)" [disabled]="quantity >= max" aria-label="Augmenter la quantite">
-        <svg lucidePlus size="16" aria-hidden="true"></svg>
+        <fa-icon [icon]="faPlus" aria-hidden="true" />
       </button>
     </div>
   `,
@@ -56,6 +57,8 @@ export class QuantitySelectorComponent {
   @Input() min = 1;
   @Input() max = 99;
   @Output() quantityChange = new EventEmitter<number>();
+  readonly faMinus = faMinus;
+  readonly faPlus = faPlus;
 
   change(value: number): void {
     this.quantityChange.emit(Math.min(Math.max(value, this.min), this.max));

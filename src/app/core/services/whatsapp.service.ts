@@ -15,7 +15,7 @@ export class WhatsAppService {
 
     const note = customer.note?.trim() ? `\n\nNote :\n${customer.note.trim()}` : '';
 
-    return `Bonjour, je souhaite passer une commande.\n\nCOMMANDE\n\n${orderLines}\n\nSous-total : ${this.formatPrice(subtotal)}\nLivraison : ${this.formatPrice(deliveryFee)}\n\nTOTAL : ${this.formatPrice(total)}\n\nClient :\nNom : ${customer.fullName}\nTelephone : ${customer.phone}\nAdresse : ${customer.address}\nVille / quartier : ${customer.city}${note}\n\nMerci.`;
+    return `Bonjour, je souhaite passer une commande.\n\nCOMMANDE\n\n${orderLines}\n\nSous-total : ${this.formatPrice(subtotal)}\nLivraison : ${this.formatPrice(deliveryFee)}\n\nTOTAL : ${this.formatPrice(total)}\n\nClient :\nNom : ${customer.fullName}\nTéléphone : ${customer.phone}\nAdresse : ${customer.address}\nVille / quartier : ${customer.city}${note}\n\nMerci.`;
   }
 
   buildOrderUrl(items: CartItem[], customer: Customer, subtotal: number, deliveryFee: number, total: number): string {

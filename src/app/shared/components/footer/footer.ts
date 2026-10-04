@@ -34,7 +34,7 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
           <p>Instagram · Facebook · TikTok</p>
         </section>
       </div>
-      <div class="container legal">Copyright {{ currentYear }} {{ store.name }}. Tous droits reserves.</div>
+      <div class="container legal">© {{ currentYear }} {{ store.name }}. Tous droits reserves.</div>
     </footer>
   `,
   styles: `

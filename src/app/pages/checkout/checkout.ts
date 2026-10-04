@@ -36,7 +36,7 @@ import { CurrencyFcfaPipe } from '../../shared/pipes/currency-fcfa.pipe';
               </div>
 
               <div class="field">
-                <label for="phone">Telephone</label>
+                <label for="phone">Téléphone</label>
                 <input id="phone" type="tel" formControlName="phone" autocomplete="tel" placeholder="77 000 00 00">
                 @if (hasError('phone', 'required')) {
                   <span class="error">Le telephone est obligatoire.</span>

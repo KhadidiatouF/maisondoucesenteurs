@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LucideTrash2 } from '@lucide/angular';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../../core/services/cart.service';
 import { EmptyStateComponent } from '../../shared/components/empty-state/empty-state';
 import { QuantitySelectorComponent } from '../../shared/components/quantity-selector/quantity-selector';
@@ -9,7 +10,7 @@ import { CurrencyFcfaPipe } from '../../shared/pipes/currency-fcfa.pipe';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [RouterLink, EmptyStateComponent, QuantitySelectorComponent, CurrencyFcfaPipe, LucideTrash2],
+  imports: [RouterLink, EmptyStateComponent, QuantitySelectorComponent, CurrencyFcfaPipe, FaIconComponent],
   template: `
     <section class="section">
       <div class="container">
@@ -30,7 +31,7 @@ import { CurrencyFcfaPipe } from '../../shared/pipes/currency-fcfa.pipe';
                   <app-quantity-selector [quantity]="item.quantity" [max]="item.product.stock" (quantityChange)="cart.updateQuantity(item.product.id, $event)" />
                   <strong>{{ item.product.price * item.quantity | currencyFcfa }}</strong>
                   <button type="button" class="remove" (click)="cart.removeFromCart(item.product.id)" aria-label="Supprimer {{ item.product.name }}">
-                    <svg lucideTrash2 size="18" aria-hidden="true"></svg>
+                    <fa-icon [icon]="faTrashCan" aria-hidden="true" />
                   </button>
                 </article>
               }
@@ -154,5 +155,7 @@ import { CurrencyFcfaPipe } from '../../shared/pipes/currency-fcfa.pipe';
   `
 })
 export class CartPage {
+  readonly faTrashCan = faTrashCan;
+
   constructor(readonly cart: CartService) {}
 }

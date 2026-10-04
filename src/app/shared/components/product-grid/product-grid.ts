@@ -28,13 +28,14 @@ import { ProductCardComponent } from '../product-card/product-card';
 
     @media (max-width: 760px) {
       .grid {
+        gap: 14px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 520px) {
       .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
   `

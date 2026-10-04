@@ -18,7 +18,7 @@ import { WhatsAppButtonComponent } from '../../shared/components/whatsapp-button
 
         <div class="surface contact-card">
           <h2>{{ store.name }}</h2>
-          <p><strong>Telephone</strong><span>{{ store.phone }}</span></p>
+          <p><strong>Téléphone</strong><span>{{ store.phone }}</span></p>
           <p><strong>WhatsApp</strong><span>{{ store.phone }}</span></p>
           <p><strong>Email</strong><span>{{ store.email }}</span></p>
           <p><strong>Adresse</strong><span>{{ store.address }}</span></p>
