@@ -1,0 +1,153 @@
+import { Product } from '../models/product.model';
+
+export const PRODUCTS: Product[] = [
+  {
+    id: 'oud-royal',
+    name: 'Oud Royal',
+    slug: 'oud-royal',
+    category: 'Parfums mixtes',
+    price: 15000,
+    size: '50 ml',
+    stock: 8,
+    isPopular: true,
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80',
+    description: 'Une fragrance profonde et enveloppante autour du bois de oud, du safran et de l ambre.',
+    notes: { top: ['Safran', 'Bergamote'], heart: ['Rose', 'Oud'], base: ['Ambre', 'Musc'] }
+  },
+  {
+    id: 'brume-vanille',
+    name: 'Brume Vanille',
+    slug: 'brume-vanille',
+    category: 'Brumes',
+    price: 5000,
+    size: '100 ml',
+    stock: 18,
+    isPopular: true,
+    image: 'https://images.unsplash.com/photo-1608528577891-eb055944f2e7?auto=format&fit=crop&w=900&q=80',
+    description: 'Une brume douce et chaleureuse, parfaite pour parfumer la peau au quotidien.',
+    notes: { top: ['Sucre glace'], heart: ['Vanille'], base: ['Musc blanc'] }
+  },
+  {
+    id: 'rose-poudre',
+    name: 'Rose Poudree',
+    slug: 'rose-poudree',
+    category: 'Parfums femme',
+    price: 12000,
+    size: '50 ml',
+    stock: 10,
+    isPopular: true,
+    image: 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=900&q=80',
+    description: 'Un parfum feminin, propre et raffine, construit autour d une rose moderne.',
+    notes: { top: ['Poire', 'Mandarine'], heart: ['Rose', 'Iris'], base: ['Poudre', 'Musc'] }
+  },
+  {
+    id: 'musc-blanc',
+    name: 'Musc Blanc',
+    slug: 'musc-blanc',
+    category: 'Huiles parfumees',
+    price: 4500,
+    size: '12 ml',
+    stock: 25,
+    image: 'https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=80',
+    description: 'Une huile parfumee propre, delicate et longue tenue pour les amateurs de douceur.',
+    notes: { top: ['Aldehydes'], heart: ['Fleur de coton'], base: ['Musc blanc', 'Bois clair'] }
+  },
+  {
+    id: 'ambre-nuit',
+    name: 'Ambre Nuit',
+    slug: 'ambre-nuit',
+    category: 'Parfums homme',
+    price: 14000,
+    size: '50 ml',
+    stock: 7,
+    isPopular: true,
+    image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=900&q=80',
+    description: 'Une signature masculine elegante avec une chaleur ambree et epicee.',
+    notes: { top: ['Poivre rose'], heart: ['Lavande', 'Cuir'], base: ['Ambre', 'Patchouli'] }
+  },
+  {
+    id: 'cocon-fleur',
+    name: 'Cocon Fleur',
+    slug: 'cocon-fleur',
+    category: 'Parfums femme',
+    price: 11000,
+    size: '50 ml',
+    stock: 12,
+    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80',
+    description: 'Un bouquet lumineux de fleurs blanches adouci par un fond cremeux.',
+    notes: { top: ['Neroli'], heart: ['Jasmin', 'Tubereuse'], base: ['Bois de santal'] }
+  },
+  {
+    id: 'coffret-eclat',
+    name: 'Coffret Eclat',
+    slug: 'coffret-eclat',
+    category: 'Coffrets',
+    price: 22000,
+    size: '3 produits',
+    stock: 5,
+    isPopular: true,
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80',
+    description: 'Un coffret cadeau compose d un parfum, d une brume et d une huile parfumee.',
+    notes: { top: ['Agrumes'], heart: ['Rose', 'Jasmin'], base: ['Vanille', 'Musc'] }
+  },
+  {
+    id: 'citron-vert',
+    name: 'Citron Vert',
+    slug: 'citron-vert',
+    category: 'Parfums mixtes',
+    price: 9000,
+    size: '50 ml',
+    stock: 13,
+    image: 'https://images.unsplash.com/photo-1619994403073-2cec844b8e63?auto=format&fit=crop&w=900&q=80',
+    description: 'Une eau fraiche, petillante et propre pour les journees chaudes.',
+    notes: { top: ['Citron vert', 'Menthe'], heart: ['The vert'], base: ['Cedre'] }
+  },
+  {
+    id: 'brume-coco',
+    name: 'Brume Coco',
+    slug: 'brume-coco',
+    category: 'Brumes',
+    price: 5500,
+    size: '100 ml',
+    stock: 19,
+    image: 'https://images.unsplash.com/photo-1622618991746-fe6004db3a47?auto=format&fit=crop&w=900&q=80',
+    description: 'Une brume solaire et gourmande avec un sillage doux de noix de coco.',
+    notes: { top: ['Lait de coco'], heart: ['Fleur de tiare'], base: ['Vanille'] }
+  },
+  {
+    id: 'santal-doux',
+    name: 'Santal Doux',
+    slug: 'santal-doux',
+    category: 'Parfums homme',
+    price: 13500,
+    size: '50 ml',
+    stock: 9,
+    image: 'https://images.unsplash.com/photo-1605619087937-6fb583064e36?auto=format&fit=crop&w=900&q=80',
+    description: 'Un parfum boise, sobre et elegant, ideal pour une signature quotidienne.',
+    notes: { top: ['Cardamome'], heart: ['Santal'], base: ['Vetiver', 'Musc'] }
+  },
+  {
+    id: 'huile-oud',
+    name: 'Huile Oud Precieux',
+    slug: 'huile-oud-precieux',
+    category: 'Huiles parfumees',
+    price: 7000,
+    size: '12 ml',
+    stock: 16,
+    image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=900&q=80',
+    description: 'Une huile concentree, intense et elegante pour les amateurs de notes orientales.',
+    notes: { top: ['Epices douces'], heart: ['Oud'], base: ['Ambre noir'] }
+  },
+  {
+    id: 'coffret-douceur',
+    name: 'Coffret Douceur',
+    slug: 'coffret-douceur',
+    category: 'Coffrets',
+    price: 18000,
+    size: '2 produits',
+    stock: 6,
+    image: 'https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?auto=format&fit=crop&w=900&q=80',
+    description: 'Une association tendre parfum et brume pour offrir une routine parfumee complete.',
+    notes: { top: ['Mandarine'], heart: ['Fleur d oranger'], base: ['Vanille', 'Musc'] }
+  }
+];
