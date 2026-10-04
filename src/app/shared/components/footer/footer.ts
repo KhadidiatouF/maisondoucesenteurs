@@ -11,6 +11,7 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
     <footer class="footer">
       <div class="container footer-grid">
         <section>
+          <img class="footer-logo" src="assets/logo.png" alt="Maison Douce Senteur">
           <h2>{{ store.name }}</h2>
           <p>{{ store.slogan }}. Commandez vos favoris simplement via WhatsApp.</p>
           <app-whatsapp-button label="Commander sur WhatsApp" />
@@ -50,6 +51,12 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
     }
 
+    .footer-logo {
+      height: 88px;
+      object-fit: contain;
+      width: 88px;
+    }
+
     h2, h3 {
       margin: 0 0 14px;
     }
@@ -58,10 +65,20 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       font-family: Georgia, "Times New Roman", serif;
       font-size: 2rem;
       font-weight: 500;
+      margin-top: 18px;
+    }
+
+    h3 {
+      color: white;
+      font-size: inherit;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     p, a {
       color: rgba(255, 255, 255, 0.74);
+      font-size: inherit;
       line-height: 1.7;
     }
 
@@ -74,6 +91,8 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
     .legal {
       border-top: 1px solid rgba(255, 255, 255, 0.16);
       color: rgba(255, 255, 255, 0.58);
+      font-size: inherit;
+      letter-spacing: 0;
       margin-top: 36px;
       padding-top: 22px;
     }

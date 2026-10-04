@@ -111,6 +111,7 @@ type SortOption = 'popular' | 'price-asc' | 'price-desc';
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      max-width: 100%;
       padding-top: 16px;
     }
 
@@ -120,9 +121,13 @@ type SortOption = 'popular' | 'price-asc' | 'price-desc';
       border-radius: 999px;
       color: var(--color-muted);
       cursor: pointer;
+      flex: 0 1 auto;
       font-weight: 800;
+      line-height: 1.2;
       min-height: 38px;
+      max-width: 100%;
       padding: 0 14px;
+      white-space: normal;
     }
 
     .collection-chips button.active,
@@ -194,10 +199,16 @@ type SortOption = 'popular' | 'price-asc' | 'price-desc';
         flex-wrap: nowrap;
         overflow-x: auto;
         padding-bottom: 2px;
+        scrollbar-width: thin;
       }
 
       .collection-chips button {
         flex: 0 0 auto;
+        font-size: 0.86rem;
+        min-height: 36px;
+        max-width: 78vw;
+        padding: 0 12px;
+        white-space: nowrap;
       }
 
       .preview-head {

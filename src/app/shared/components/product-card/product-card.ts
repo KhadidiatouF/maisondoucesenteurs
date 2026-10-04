@@ -73,8 +73,8 @@ import { CurrencyFcfaPipe } from '../../pipes/currency-fcfa.pipe';
 
     .content {
       display: grid;
-      gap: 10px;
-      padding: 18px;
+      gap: 12px;
+      padding: 18px 18px 20px;
     }
 
     .category {
@@ -108,11 +108,16 @@ import { CurrencyFcfaPipe } from '../../pipes/currency-fcfa.pipe';
       padding-top: 12px;
     }
 
+    .price {
+      color: var(--color-ink);
+      font-size: inherit;
+    }
+
     .size {
       background: transparent;
       border: 1px solid rgba(215, 166, 66, 0.32);
       border-radius: 999px;
-      color: var(--color-primary-dark);
+      color: var(--color-ink);
       font-size: 0.82rem;
       font-weight: 900;
       padding: 6px 10px;
@@ -132,6 +137,7 @@ import { CurrencyFcfaPipe } from '../../pipes/currency-fcfa.pipe';
 
     .actions .btn {
       min-height: 44px;
+      min-width: 0;
     }
 
     .actions .btn-primary {
@@ -176,7 +182,8 @@ import { CurrencyFcfaPipe } from '../../pipes/currency-fcfa.pipe';
       }
 
       .actions {
-        grid-template-columns: 1fr 42px;
+        grid-template-columns: minmax(0, 1fr) 40px;
+        gap: 8px;
       }
 
       .btn {
@@ -184,9 +191,35 @@ import { CurrencyFcfaPipe } from '../../pipes/currency-fcfa.pipe';
         padding: 0 10px;
       }
 
+      .actions .btn-primary {
+        font-size: 0.84rem;
+      }
+
+      .actions .btn-primary fa-icon {
+        font-size: 0.9rem;
+      }
+
+      .details {
+        width: 40px;
+      }
+
       .size {
         font-size: 0.72rem;
         padding: 5px 8px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .actions {
+        grid-template-columns: 1fr 44px;
+      }
+
+      .actions .btn-primary {
+        font-size: 0.9rem;
+      }
+
+      .details {
+        width: 44px;
       }
     }
   `

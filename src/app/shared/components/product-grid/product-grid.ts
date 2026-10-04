@@ -38,6 +38,12 @@ import { ProductCardComponent } from '../product-card/product-card';
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+
+    @media (max-width: 390px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   `
 })
 export class ProductGridComponent {

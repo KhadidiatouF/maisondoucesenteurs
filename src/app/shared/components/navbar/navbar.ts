@@ -4,18 +4,25 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { STORE_CONFIG } from '../../../core/config/store.config';
 import { CartBadgeComponent } from '../cart-badge/cart-badge';
-import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CartBadgeComponent, WhatsAppButtonComponent, FaIconComponent],
+  imports: [RouterLink, RouterLinkActive, CartBadgeComponent, FaIconComponent],
   template: `
     <header class="site-header">
       <div class="top-strip">
-        <div class="container strip-inner">
+        <div class="strip-inner" aria-label="Informations Maison Douce Senteur">
           <span>Livraison disponible a Dakar</span>
+          <i>|</i>
           <span>Commande simple sur WhatsApp</span>
+          <i>|</i>
+          <span>Maison Douce Senteur</span>
+          <i>|</i>
+          <span>Livraison disponible a Dakar</span>
+          <i>|</i>
+          <span>Commande simple sur WhatsApp</span>
+          <i>|</i>
           <span>Maison Douce Senteur</span>
         </div>
       </div>
@@ -36,12 +43,14 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
         </button>
 
         <div class="links" [class.open]="isOpen()">
+          <button class="drawer-close" type="button" (click)="closeMenu()" aria-label="Fermer le menu">
+            <fa-icon [icon]="faXmark" aria-hidden="true" />
+          </button>
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Accueil</a>
           <a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Parfums</a>
           <a routerLink="/" fragment="about" (click)="closeMenu()">A propos</a>
           <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
           <app-cart-badge />
-          <app-whatsapp-button label="WhatsApp" />
         </div>
       </nav>
     </header>
@@ -61,14 +70,32 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       color: white;
       font-size: 0.78rem;
       font-weight: 800;
+      overflow: hidden;
     }
 
     .strip-inner {
+      animation: strip-marquee 22s linear infinite;
       align-items: center;
       display: flex;
-      justify-content: space-between;
+      gap: 22px;
       min-height: 30px;
-      gap: 16px;
+      min-width: max-content;
+      padding-inline: 22px;
+      width: max-content;
+    }
+
+    .strip-inner span {
+      white-space: nowrap;
+    }
+
+    .strip-inner i {
+      color: rgba(255, 255, 255, 0.32);
+      font-style: normal;
+    }
+
+    @keyframes strip-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .nav {
@@ -113,10 +140,11 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       align-items: center;
       display: flex;
       gap: 24px;
+      min-width: 0;
     }
 
     .links a {
-      color: var(--color-muted);
+      color: var(--color-ink);
       font-weight: 800;
       text-decoration: none;
     }
@@ -142,16 +170,26 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       display: none;
     }
 
+    .drawer-close {
+      display: none;
+    }
+
     @media (max-width: 820px) {
       .site-header {
         background: rgba(255, 253, 246, 0.94);
       }
 
       .top-strip {
-        display: none;
+        font-size: 0.68rem;
+      }
+
+      .strip-inner {
+        animation-duration: 18s;
+        min-height: 28px;
       }
 
       .nav {
+        position: relative;
         min-height: 70px;
       }
 
@@ -160,7 +198,14 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       }
 
       .brand > span:last-child {
-        font-size: 0.9rem;
+        display: inline;
+        font-size: clamp(1rem, 3.8vw, 1.24rem);
+        left: 50%;
+        position: absolute;
+        text-align: center;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        width: auto;
       }
 
       .brand-mark {
@@ -177,20 +222,83 @@ import { WhatsAppButtonComponent } from '../whatsapp-button/whatsapp-button';
       .links {
         align-items: stretch;
         background: #fffdf6;
-        border-bottom: 1px solid var(--color-line);
-        border-top: 1px solid var(--color-line);
-        display: none;
+        border-left: 1px solid var(--color-line);
+        bottom: 0;
+        box-shadow: -22px 0 50px rgba(6, 5, 4, 0.18);
+        display: flex;
         flex-direction: column;
-        gap: 18px;
-        left: 0;
-        padding: 20px;
-        position: absolute;
+        gap: 4px;
+        height: 100vh;
+        min-width: 250px;
+        overflow-y: auto;
+        padding: 78px 20px 28px;
+        position: fixed;
         right: 0;
-        top: 70px;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+        width: min(52vw, 340px);
+        z-index: 60;
+      }
+
+      .drawer-close {
+        align-items: center;
+        background: var(--color-primary);
+        border: 0;
+        border-radius: 999px;
+        color: white;
+        display: inline-flex;
+        height: 40px;
+        justify-content: center;
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        width: 40px;
+      }
+
+      .links a {
+        border-bottom: 1px solid var(--color-line);
+        color: var(--color-ink);
+        min-height: 52px;
+        padding: 17px 4px;
+      }
+
+      .links a,
+      .links app-cart-badge {
+        max-width: 100%;
       }
 
       .links.open {
-        display: flex;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nav {
+        gap: 12px;
+      }
+
+      .brand > span:last-child {
+        font-size: 0.96rem;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .brand-mark {
+        flex: 0 0 42px;
+        height: 42px;
+        width: 42px;
+      }
+
+      .icon-btn {
+        flex: 0 0 42px;
+        height: 42px;
+        width: 42px;
+      }
+
+      .links {
+        min-width: 220px;
+        width: 58vw;
       }
     }
   `
